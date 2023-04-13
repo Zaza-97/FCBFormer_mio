@@ -105,6 +105,12 @@ def build(args):
         input_paths = sorted(glob.glob(img_path))
         depth_path = args.root + "Ground Truth/*"
         target_paths = sorted(glob.glob(depth_path))
+     elif args.dataset == "MIO":
+        img_path = args.root + "Images/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = args.root + "Mask/*"
+        target_paths = sorted(glob.glob(depth_path))
+        
     train_dataloader, _, val_dataloader = dataloaders.get_dataloaders(
         input_paths, target_paths, batch_size=args.batch_size
     )
@@ -191,7 +197,7 @@ def train(args):
 
 def get_args():
     parser = argparse.ArgumentParser(description="Train FCBFormer on specified dataset")
-    parser.add_argument("--dataset", type=str, required=True, choices=["Kvasir", "CVC"])
+    parser.add_argument("--dataset", type=str, required=True, choices=["Kvasir", "CVC", "MIO"])
     parser.add_argument("--data-root", type=str, required=True, dest="root")
     parser.add_argument("--epochs", type=int, default=200)
     parser.add_argument("--batch-size", type=int, default=16)
