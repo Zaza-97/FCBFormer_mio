@@ -30,6 +30,15 @@ def eval(args):
                 )
             )
         )
+    elif args.test_dataset == "MIO":
+        prediction_files = sorted(
+            glob.glob(
+                "./Predictions/Trained on {}/Tested on {}/*".format(
+                    args.train_dataset, args.test_dataset
+                )
+            )
+        )
+      
         depth_path = args.root + "Ground Truth/*"
         target_paths = sorted(glob.glob(depth_path))
 
