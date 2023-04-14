@@ -105,7 +105,7 @@ def build(args):
         input_paths = sorted(glob.glob(img_path))
         depth_path = args.root + "Ground Truth/*"
         target_paths = sorted(glob.glob(depth_path))
-     elif args.dataset == "MIO":
+    elif args.dataset == "MIO":
         img_path = args.root + "Images/*"
         input_paths = sorted(glob.glob(img_path))
         depth_path = args.root + "Mask/*"
