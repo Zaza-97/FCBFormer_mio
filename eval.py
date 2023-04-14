@@ -30,6 +30,9 @@ def eval(args):
                 )
             )
         )
+        depth_path = args.root + "Ground Truth/*"
+        target_paths = sorted(glob.glob(depth_path))
+        
     elif args.test_dataset == "MIO":
         prediction_files = sorted(
             glob.glob(
@@ -39,7 +42,7 @@ def eval(args):
             )
         )
       
-        depth_path = args.root + "Ground Truth/*"
+        depth_path = args.root + "Mask/*"
         target_paths = sorted(glob.glob(depth_path))
 
     _, test_indices, _ = split_ids(len(target_paths))
