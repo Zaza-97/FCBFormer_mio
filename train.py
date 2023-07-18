@@ -190,7 +190,7 @@ def train(args):
                     "test_measure_mean": test_measure_mean,
                     "test_measure_std": test_measure_std,
                 },
-                "Trained models/FCBFormer_" + args.dataset + ".pt",
+                "./Trained models/FCBFormer_" + args.dataset + ".pt",
             )
             prev_best_test = test_measure_mean
 
